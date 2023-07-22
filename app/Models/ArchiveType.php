@@ -13,16 +13,27 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class ArchiveType
- * 
+ *
  * @property int $id
  * @property string $name
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * 
  * @property Collection|Archive[] $archives
- *
  * @package App\Models
+ * @property-read int|null $archives_count
+ * @method static \Illuminate\Database\Eloquent\Builder|ArchiveType newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ArchiveType newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ArchiveType onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ArchiveType query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ArchiveType whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ArchiveType whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ArchiveType whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ArchiveType whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ArchiveType whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ArchiveType withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|ArchiveType withoutTrashed()
+ * @mixin \Eloquent
  */
 class ArchiveType extends Model
 {

@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Archive
- * 
+ *
  * @property int $id
  * @property int $department_id
  * @property string $code
@@ -25,13 +25,30 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * 
  * @property ArchiveCharacteristic $archive_characteristic
  * @property ArchiveType $archive_type
  * @property User $user
  * @property Department $department
- *
  * @package App\Models
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereArchiveCharacteristicId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereArchiveStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereArchiveTypeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereCreatorId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereDepartmentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive withoutTrashed()
+ * @mixin \Eloquent
  */
 class Archive extends Model
 {
