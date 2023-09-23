@@ -7,34 +7,42 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class ArchiveCharacteristic
+ * Class Creator
  * 
  * @property int $id
  * @property string $name
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ * @property int|null $created_by
+ * @property int|null $updated_by
  * @property string|null $deleted_at
  * 
- * @property Collection|Archive[] $archives
+ * @property User|null $user
  *
  * @package App\Models
  */
-class ArchiveCharacteristic extends Model
+class Creator extends Model
 {
 	use SoftDeletes;
-	protected $table = 'archive_characteristics';
+	protected $table = 'creators';
 
-	protected $fillable = [
-		'name'
+	protected $casts = [
+		'created_by' => 'int',
+		'updated_by' => 'int'
 	];
 
-	public function archives()
+	protected $fillable = [
+		'name',
+		'created_by',
+		'updated_by'
+	];
+
+	public function user()
 	{
-		return $this->hasMany(Archive::class);
+		return $this->belongsTo(User::class, 'updated_by');
 	}
 }

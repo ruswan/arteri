@@ -12,29 +12,44 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class ArchiveCharacteristic
+ * Class Medium
  * 
  * @property int $id
  * @property string $name
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ * @property int|null $created_by
+ * @property int|null $updated_by
  * @property string|null $deleted_at
  * 
+ * @property User|null $user
  * @property Collection|Archive[] $archives
  *
  * @package App\Models
  */
-class ArchiveCharacteristic extends Model
+class Medium extends Model
 {
 	use SoftDeletes;
-	protected $table = 'archive_characteristics';
+	protected $table = 'media';
+
+	protected $casts = [
+		'created_by' => 'int',
+		'updated_by' => 'int'
+	];
 
 	protected $fillable = [
-		'name'
+		'name',
+		'created_by',
+		'updated_by'
 	];
+
+	public function user()
+	{
+		return $this->belongsTo(User::class, 'updated_by');
+	}
 
 	public function archives()
 	{
-		return $this->hasMany(Archive::class);
+		return $this->hasMany(Archive::class, 'media_id');
 	}
 }

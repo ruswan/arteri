@@ -12,26 +12,46 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class ArchiveCharacteristic
+ * Class Code
  * 
  * @property int $id
- * @property string $name
+ * @property string $code
+ * @property string $names
+ * @property int $retention
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ * @property int|null $created_by
+ * @property int|null $updated_by
  * @property string|null $deleted_at
  * 
+ * @property User|null $user
  * @property Collection|Archive[] $archives
  *
  * @package App\Models
  */
-class ArchiveCharacteristic extends Model
+class Code extends Model
 {
 	use SoftDeletes;
-	protected $table = 'archive_characteristics';
+	protected $table = 'codes';
+
+	protected $casts = [
+		'retention' => 'int',
+		'created_by' => 'int',
+		'updated_by' => 'int'
+	];
 
 	protected $fillable = [
-		'name'
+		'code',
+		'names',
+		'retention',
+		'created_by',
+		'updated_by'
 	];
+
+	public function user()
+	{
+		return $this->belongsTo(User::class, 'updated_by');
+	}
 
 	public function archives()
 	{

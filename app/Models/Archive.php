@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Archive
- *
+ * 
  * @property int $id
  * @property int $department_id
  * @property string $code
@@ -25,30 +25,26 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
+ * @property int $location_id
+ * @property int $code_id
+ * @property int $media_id
+ * @property Carbon $dates
+ * @property string $descriptions
+ * @property string $notes
+ * @property int $quantities
+ * @property string $box_numbers
+ * @property string|null $files
+ * @property int|null $created_by
+ * @property int|null $updated_by
+ * 
  * @property ArchiveCharacteristic $archive_characteristic
  * @property ArchiveType $archive_type
- * @property User $user
+ * @property User|null $user
  * @property Department $department
+ * @property Location $location
+ * @property Medium $medium
+ *
  * @package App\Models
- * @method static \Illuminate\Database\Eloquent\Builder|Archive newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Archive newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Archive onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Archive query()
- * @method static \Illuminate\Database\Eloquent\Builder|Archive whereArchiveCharacteristicId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Archive whereArchiveStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Archive whereArchiveTypeId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Archive whereCode($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Archive whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Archive whereCreatorId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Archive whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Archive whereDepartmentId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Archive whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Archive whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Archive whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Archive whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Archive withTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Archive withoutTrashed()
- * @mixin \Eloquent
  */
 class Archive extends Model
 {
@@ -60,7 +56,14 @@ class Archive extends Model
 		'archive_type_id' => 'int',
 		'archive_characteristic_id' => 'int',
 		'creator_id' => 'int',
-		'archive_status' => 'int'
+		'archive_status' => 'int',
+		'location_id' => 'int',
+		'code_id' => 'int',
+		'media_id' => 'int',
+		'dates' => 'datetime',
+		'quantities' => 'int',
+		'created_by' => 'int',
+		'updated_by' => 'int'
 	];
 
 	protected $fillable = [
@@ -71,7 +74,18 @@ class Archive extends Model
 		'description',
 		'archive_characteristic_id',
 		'creator_id',
-		'archive_status'
+		'archive_status',
+		'location_id',
+		'code_id',
+		'media_id',
+		'dates',
+		'descriptions',
+		'notes',
+		'quantities',
+		'box_numbers',
+		'files',
+		'created_by',
+		'updated_by'
 	];
 
 	public function archive_characteristic()
@@ -89,13 +103,28 @@ class Archive extends Model
 		return $this->belongsTo(ArchiveType::class);
 	}
 
+	public function code()
+	{
+		return $this->belongsTo(Code::class);
+	}
+
 	public function user()
 	{
-		return $this->belongsTo(User::class, 'creator_id');
+		return $this->belongsTo(User::class, 'updated_by');
 	}
 
 	public function department()
 	{
 		return $this->belongsTo(Department::class);
+	}
+
+	public function location()
+	{
+		return $this->belongsTo(Location::class);
+	}
+
+	public function medium()
+	{
+		return $this->belongsTo(Medium::class, 'media_id');
 	}
 }
