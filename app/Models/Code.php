@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @property int $id
  * @property string $code
- * @property string $names
+ * @property string $name
  * @property int $retention
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
@@ -36,7 +36,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|Code whereCreatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Code whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Code whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Code whereNames($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Code wherename($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Code whereRetention($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Code whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Code whereUpdatedBy($value)
@@ -46,30 +46,30 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Code extends Model
 {
-	use SoftDeletes;
-	protected $table = 'codes';
+    use SoftDeletes;
+    protected $table = 'codes';
 
-	protected $casts = [
-		'retention' => 'int',
-		'created_by' => 'int',
-		'updated_by' => 'int'
-	];
+    protected $casts = [
+        'retention' => 'int',
+        'created_by' => 'int',
+        'updated_by' => 'int'
+    ];
 
-	protected $fillable = [
-		'code',
-		'names',
-		'retention',
-		'created_by',
-		'updated_by'
-	];
+    protected $fillable = [
+        'code',
+        'name',
+        'retention',
+        'created_by',
+        'updated_by'
+    ];
 
-	public function user()
-	{
-		return $this->belongsTo(User::class, 'updated_by');
-	}
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
+    }
 
-	public function archives()
-	{
-		return $this->hasMany(Archive::class);
-	}
+    public function archives()
+    {
+        return $this->hasMany(Archive::class);
+    }
 }

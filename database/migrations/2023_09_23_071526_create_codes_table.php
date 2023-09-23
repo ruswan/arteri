@@ -15,7 +15,7 @@ return new class () extends Migration {
         Schema::create('codes', function (Blueprint $table) {
             $table->id();
             $table->string('code', 10)->unique('code');
-            $table->string('names')->index('names');
+            $table->string('name')->index('name');
             $table->integer('retention');
             $table->timestamps();
             $table->foreignId('created_by')->nullable()->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
