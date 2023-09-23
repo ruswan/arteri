@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Circulation
- * 
+ *
  * @property int $id
  * @property string $archive_id
  * @property string $user_id
@@ -26,10 +26,28 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int|null $created_by
  * @property int|null $updated_by
  * @property string|null $deleted_at
- * 
  * @property User|null $user
- *
  * @package App\Models
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation whereArchiveId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation whereBorrowDates($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation whereDueDates($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation wherePurposes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation whereReturnDates($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation whereTransactionDates($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Circulation withoutTrashed()
+ * @mixin \Eloquent
  */
 class Circulation extends Model
 {

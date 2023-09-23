@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Archive
- * 
+ *
  * @property int $id
  * @property int $department_id
  * @property string $code
@@ -36,15 +36,43 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string|null $files
  * @property int|null $created_by
  * @property int|null $updated_by
- * 
  * @property ArchiveCharacteristic $archive_characteristic
  * @property ArchiveType $archive_type
  * @property User|null $user
  * @property Department $department
  * @property Location $location
  * @property Medium $medium
- *
  * @package App\Models
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereArchiveCharacteristicId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereArchiveStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereArchiveTypeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereBoxNumbers($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereCodeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereCreatorId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereDates($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereDepartmentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereDescriptions($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereFiles($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereLocationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereMediaId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereNotes($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereQuantities($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Archive withoutTrashed()
+ * @mixin \Eloquent
  */
 class Archive extends Model
 {

@@ -10,14 +10,19 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class ModelHasRole
- * 
+ *
  * @property int $role_id
  * @property string $model_type
  * @property int $model_id
- * 
  * @property Role $role
- *
  * @package App\Models
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereModelId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereModelType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ModelHasRole whereRoleId($value)
+ * @mixin \Eloquent
  */
 class ModelHasRole extends Model
 {

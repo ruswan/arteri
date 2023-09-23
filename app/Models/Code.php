@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Code
- * 
+ *
  * @property int $id
  * @property string $code
  * @property string $names
@@ -23,11 +23,26 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int|null $created_by
  * @property int|null $updated_by
  * @property string|null $deleted_at
- * 
  * @property User|null $user
  * @property Collection|Archive[] $archives
- *
  * @package App\Models
+ * @property-read int|null $archives_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Code newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Code newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Code onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Code query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Code whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Code whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Code whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Code whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Code whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Code whereNames($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Code whereRetention($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Code whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Code whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Code withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Code withoutTrashed()
+ * @mixin \Eloquent
  */
 class Code extends Model
 {
